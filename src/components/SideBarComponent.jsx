@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   List,
   ListItem,
@@ -61,13 +61,21 @@ export default function SideBarComponent() {
       component: <SettingsOutlined fontSize="medium" color="primary" />,
     },
   ];
+  const [selected, setSelected] = useState(0);
+  const handlSelectedComponent = (event, index) => {
+    setSelected(index);
+  };
   return (
     <>
       <List>
-        {sideBarComponent.map((comp) => (
+        {sideBarComponent.map((comp, index) => (
           <ListItem disablePadding dense={true}>
             <Box width="100%">
               <ListItemButton
+                onClick={(event) => {
+                  handlSelectedComponent(event, index);
+                }}
+                selected={index === selected}
                 sx={{
                   mb: 3,
                   borderLeft: 0,
@@ -80,18 +88,35 @@ export default function SideBarComponent() {
                 </ListItemIcon>
                 <ListItemText
                   primary={comp.title}
-                  primaryTypographyProps={{ fontSize: "medium" }}
+                  primaryTypographyProps={{
+                    fontSize: "medium",
+                    fontWeight: selected === index ? "bold" : "",
+                    color: selected === index ? "primary.main" : "inherit",
+                  }}
                 />
               </ListItemButton>
             </Box>
           </ListItem>
         ))}
       </List>
-      <Snackbar open={true} autoHideDuration={6000}>
-        <Alert severity="success" sx={{ width: "100%" }}>
+      {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           This is a success message!
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
     </>
   );
+  //   const [open, setOpen] = React.useState(false);
+
+  //   const handleClick = () => {
+  //     setOpen(true);
+  //   };
+
+  //   const handleClose = (event, reason) => {
+  //     if (reason === 'clickaway') {
+  //       return;
+  //     }
+
+  //     setOpen(false);
+  //   };
 }
