@@ -69,7 +69,7 @@ export default function SideBarComponent() {
     <>
       <List>
         {sideBarComponent.map((comp, index) => (
-          <ListItem disablePadding dense={true}>
+          <ListItem disablePadding dense={true} key={index}>
             <Box width="100%">
               <ListItemButton
                 onClick={(event) => {

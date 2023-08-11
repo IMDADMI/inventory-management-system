@@ -9,10 +9,10 @@ export default function RootComponent() {
     <>
       <NavBarComponent />
       <Grid container spacing={0}>
-        <Grid item md={2} sx={{ bgcolor: "error" }}>
+        <Grid item md={2} sm={0} sx={{ bgcolor: "error" }}>
           <SideBarComponent />
         </Grid>
-        <Grid item md="auto">
+        <Grid item md="10">
           <BodyComponent />
         </Grid>
       </Grid>
