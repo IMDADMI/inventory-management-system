@@ -4,7 +4,7 @@ export default function InfoCard({ card }) {
   return (
     //do the routing here
     <>
-      <Card elevation={5} sx={{ mx: 5, my: 1 }}>
+      <Card elevation={5} sx={{ mx: card.mx, my: card.my }}>
         <Box sx={{ display: "flex", alignItems: "center" }} pl={1}>
           <Box
             p={1}
