@@ -5,7 +5,8 @@ import UilReceipt from "@iconscout/react-unicons/icons/uil-receipt";
 import UilBox from "@iconscout/react-unicons/icons/uil-box";
 import UilTruck from "@iconscout/react-unicons/icons/uil-truck";
 import UilCheckCircle from "@iconscout/react-unicons/icons/uil-check-circle";
-import InfoCard from "../subComponents/InfoCard";
+import InfoCard from "../../subComponents/InfoCard";
+import TotalSales from "./TotalSales";
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ export default class Home extends Component {
   }
 
   render() {
+    const data = {};
     const cardComponent = [
       {
         icon: <UilBox size={60} color={"#F6F4EB"} />,
@@ -45,16 +47,39 @@ export default class Home extends Component {
     ];
 
     return (
-      <Box>
+      <Box
+        sx={{
+          margin: 3,
+          // bgcolor: "grey",
+          // borderRadius: 5,
+          padding: 3,
+        }}
+      >
         <Grid
           container
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            margin: 3,
+            bgcolor: "grey",
+            borderRadius: 5,
+            padding: 3,
+          }}
         >
           {cardComponent.map((card, index) => (
             <Grid item md={"3"} key={index}>
               <InfoCard card={card} />
             </Grid>
           ))}
+        </Grid>
+        <Grid
+          container
+          // sx={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <Grid item md={"9"}>
+            <TotalSales data={data} />
+          </Grid>
+          <Grid item md={"3"}></Grid>
         </Grid>
       </Box>
     );

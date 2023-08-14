@@ -7,7 +7,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./bodyComponents/Home";
+import Home from "./bodyComponents/Home/Home";
 
 export default function BodyComponent() {
   const router = createBrowserRouter(
@@ -25,7 +25,9 @@ export default function BodyComponent() {
   );
 
   return (
-    <Box sx={{ px: 3, py: 7 }}>
+    <Box
+    // sx={{ px: 3, py: 7 }}
+    >
       <RouterProvider router={router} />
     </Box>
     // <div>
