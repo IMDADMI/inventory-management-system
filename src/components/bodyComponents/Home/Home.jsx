@@ -24,28 +24,28 @@ export default class Home extends Component {
         title: "Picked",
         subTitle: "1256",
         mx: 3,
-        my: 1,
+        my: 0,
       },
       {
         icon: <UilTruck size={60} color={"#F6F4EB"} />,
         title: "Shipped",
         subTitle: "12",
         mx: 5,
-        my: 1,
+        my: 0,
       },
       {
         icon: <UilCheckCircle size={60} color={"#F6F4EB"} />,
         title: "Delivered",
         subTitle: "15",
         mx: 5,
-        my: 1,
+        my: 0,
       },
       {
         icon: <UilReceipt size={60} color={"#F6F4EB"} />,
         title: "Invoice",
         subTitle: "07",
         mx: 3,
-        my: 1,
+        my: 0,
       },
     ];
 
@@ -63,7 +63,7 @@ export default class Home extends Component {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            margin: 3,
+            marginX: 3,
             borderRadius: 5,
             padding: 0,
           }}
@@ -74,7 +74,7 @@ export default class Home extends Component {
             </Grid>
           ))}
         </Grid>
-        <Grid container sx={{ margin: 3 }}>
+        <Grid container sx={{ marginX: 3 }}>
           <Grid item md={"8"}>
             <TotalSales data={data} />
           </Grid>
