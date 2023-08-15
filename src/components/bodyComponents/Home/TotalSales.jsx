@@ -25,12 +25,14 @@ export default function TotalSales() {
       width: 3,
     },
     legend: {
-      customLegendItems: ["current Week  $31,000", "Previous Week  $37,000"],
+      customLegendItems: [
+        "current Week  <b>$31,000<b/>",
+        "Previous Week <b>$37,000<b/>",
+      ],
       position: "top",
       horizontalAlign: "center",
       fontSize: "14px",
       fontFamily: "Helvetica, Arial",
-      fontWeight: 700,
       offsetY: -20,
     },
     markers: {
@@ -73,11 +75,19 @@ export default function TotalSales() {
     },
   ];
   return (
-    <Box sx={{ margin: 3, bgcolor: "grey", borderRadius: 5, padding: 3 }}>
+    <Box
+      sx={{
+        margin: 3,
+        bgcolor: "white",
+        borderRadius: 5,
+        padding: 3,
+        height: "100%",
+      }}
+    >
       <ApexCharts
         options={options}
         series={series}
-        height={450}
+        height={300}
         type="line"
         width="100%"
       />

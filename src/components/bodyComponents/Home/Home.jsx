@@ -7,6 +7,9 @@ import UilTruck from "@iconscout/react-unicons/icons/uil-truck";
 import UilCheckCircle from "@iconscout/react-unicons/icons/uil-check-circle";
 import InfoCard from "../../subComponents/InfoCard";
 import TotalSales from "./TotalSales";
+import SalesByCity from "./SalesByCity";
+import Channels from "./Channels";
+import TopSellingProduct from "./TopSellingProduct";
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +23,7 @@ export default class Home extends Component {
         icon: <UilBox size={60} color={"#F6F4EB"} />,
         title: "Picked",
         subTitle: "1256",
-        mx: 5,
+        mx: 3,
         my: 1,
       },
       {
@@ -41,7 +44,7 @@ export default class Home extends Component {
         icon: <UilReceipt size={60} color={"#F6F4EB"} />,
         title: "Invoice",
         subTitle: "07",
-        mx: 5,
+        mx: 3,
         my: 1,
       },
     ];
@@ -49,7 +52,7 @@ export default class Home extends Component {
     return (
       <Box
         sx={{
-          margin: 3,
+          margin: 0,
           // bgcolor: "grey",
           // borderRadius: 5,
           padding: 3,
@@ -61,9 +64,8 @@ export default class Home extends Component {
             display: "flex",
             justifyContent: "space-between",
             margin: 3,
-            bgcolor: "grey",
             borderRadius: 5,
-            padding: 3,
+            padding: 0,
           }}
         >
           {cardComponent.map((card, index) => (
@@ -72,14 +74,22 @@ export default class Home extends Component {
             </Grid>
           ))}
         </Grid>
-        <Grid
-          container
-          // sx={{ display: "flex", justifyContent: "space-between" }}
-        >
-          <Grid item md={"9"}>
+        <Grid container sx={{ margin: 3 }}>
+          <Grid item md={"8"}>
             <TotalSales data={data} />
           </Grid>
-          <Grid item md={"3"}></Grid>
+          <Grid item md={"4"}>
+            <SalesByCity data={data} />
+          </Grid>
+        </Grid>
+
+        <Grid container sx={{ margin: 3 }}>
+          <Grid item md={"6"}>
+            <Channels />
+          </Grid>
+          <Grid item md={"6"}>
+            <TopSellingProduct />
+          </Grid>
         </Grid>
       </Box>
     );

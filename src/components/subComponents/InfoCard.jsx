@@ -4,7 +4,7 @@ export default function InfoCard({ card }) {
   return (
     //do the routing here
     <>
-      <Card elevation={5} sx={{ mx: card.mx, my: card.my }}>
+      <Card elevation={6} sx={{ mx: card.mx, my: card.my, borderRadius: 5 }}>
         <Box sx={{ display: "flex", alignItems: "center" }} pl={1}>
           <Box
             p={1}
@@ -12,7 +12,7 @@ export default function InfoCard({ card }) {
             sx={{
               display: "flex",
               bgcolor: "primary.main",
-              borderRadius: "12px",
+              borderRadius: 3,
               alignItems: "center",
             }}
           >
@@ -26,15 +26,11 @@ export default function InfoCard({ card }) {
               justifyContent: "center",
             }}
           >
-            <Typography
-              variant="subtitle1"
-              color="text.secondary"
-              component="div"
-            >
+            <Typography variant="h6" color="text.secondary" component="div">
               {card.title}
             </Typography>
             <Typography
-              variant="h6"
+              variant="h5"
               fontWeight={"bolder"}
               color="text.secondary"
               component="div"
