@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../public/styles/links.css";
 import {
   List,
   ListItem,
@@ -9,6 +10,7 @@ import {
   Box,
   Snackbar,
   Alert,
+  Button,
 } from "@mui/material";
 import {
   HomeOutlined,
@@ -20,8 +22,13 @@ import {
   TrendingUpOutlined,
   PeopleAltOutlined,
 } from "@mui/icons-material";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export default function SideBarComponent() {
+  const navigate = useNavigate();
+  const navigateTo = (to) => {
+    navigate(to);
+  };
   // const styles = theme => ({
   //     listItemText:{
   //         fontSize:'0.7em',//Insert your required size
@@ -41,7 +48,7 @@ export default function SideBarComponent() {
       component: <CardTravelOutlined fontSize="medium" color="primary" />,
     },
     {
-      title: "Customer",
+      title: "Customers",
       component: <PeopleAltOutlined fontSize="medium" color="primary" />,
     },
     {
@@ -53,7 +60,7 @@ export default function SideBarComponent() {
       component: <TrendingUpOutlined fontSize="medium" color="primary" />,
     },
     {
-      title: "Report",
+      title: "Reports",
       component: <DescriptionOutlined fontSize="medium" color="primary" />,
     },
     {
@@ -74,6 +81,7 @@ export default function SideBarComponent() {
               <ListItemButton
                 onClick={(event) => {
                   handlSelectedComponent(event, index);
+                  navigateTo(comp.title.toLocaleLowerCase());
                 }}
                 selected={index === selected}
                 sx={{
@@ -86,6 +94,10 @@ export default function SideBarComponent() {
                 <ListItemIcon>
                   <IconButton>{comp.component}</IconButton>
                 </ListItemIcon>
+                {/* <Link
+                  to={"" + comp.title.toLocaleLowerCase()}
+                  className="router-link"
+                > */}
                 <ListItemText
                   primary={comp.title}
                   primaryTypographyProps={{
@@ -94,6 +106,7 @@ export default function SideBarComponent() {
                     color: selected === index ? "primary.main" : "inherit",
                   }}
                 />
+                {/* </Link> */}
               </ListItemButton>
             </Box>
           </ListItem>

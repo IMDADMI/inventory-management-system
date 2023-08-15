@@ -1,6 +1,14 @@
 import Inter from "../public/static/fonts/Inter.ttf";
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material";
 import RootComponent from "./components/RootComponent";
+import RootPage from "./components/RootPage";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./components/bodyComponents/Home/Home";
 function App() {
   const theme = createTheme({
     spacing: 4,
@@ -40,9 +48,25 @@ function App() {
     },
     //here we customize our typographi and in the variant prop we can use out myVar value
   });
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootComponent />}>
+        <Route index element={<RootPage />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/inventory"></Route>
+        <Route path="/orders"></Route>
+        <Route path="/customers"></Route>
+        <Route path="/revenue"></Route>
+        <Route path="/growth"></Route>
+        <Route path="/reports"></Route>
+        <Route path="/settings"></Route>
+      </Route>
+    )
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <RootComponent />
+      <RouterProvider router={router} />
       <CssBaseline />
     </ThemeProvider>
   );

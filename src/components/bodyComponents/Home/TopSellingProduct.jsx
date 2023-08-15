@@ -46,9 +46,9 @@ export default function TopSellingProduct() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product) => {
+            {products.map((product, id) => {
               return (
-                <TableRow>
+                <TableRow key={id}>
                   <TableCell>{product.name}</TableCell>
                   <TableCell>{product.price}</TableCell>
                   <TableCell>{product.quantity}</TableCell>
