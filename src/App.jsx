@@ -1,12 +1,20 @@
+import Inter from "../public/static/fonts/Inter.ttf";
+import { ThemeProvider, CssBaseline, createTheme } from "@mui/material";
+import RootComponent from "./components/RootComponent";
+import RootPage from "./components/RootPage";
+import DataTable from "./test/DataTable";
+import Hello from "./test/Hello";
+// import "../app.css";
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Inter from "../public/static/fonts/Inter.ttf";
-import { ThemeProvider, CssBaseline, createTheme } from "@mui/material";
-import RootComponent from "./components/RootComponent";
+import Home from "./components/bodyComponents/home/Home";
+import Products from "./components/bodyComponents/inventory/Products";
+import Inventory from "./components/bodyComponents/inventory/Inventory";
+
 function App() {
   const theme = createTheme({
     spacing: 4,
@@ -46,9 +54,28 @@ function App() {
     },
     //here we customize our typographi and in the variant prop we can use out myVar value
   });
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootComponent />}>
+        <Route index element={<RootPage />} />
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/inventory" element={<Inventory />}></Route>
+        <Route path="/orders"></Route>
+        <Route path="/customers"></Route>
+        <Route path="/revenue"></Route>
+        <Route path="/growth"></Route>
+        <Route path="/reports"></Route>
+        <Route path="/settings"></Route>
+      </Route>
+    )
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <RootComponent />
+      {/* <DataTable /> */}
+      {/* <Products /> */}
+      <RouterProvider router={router} />
+
       <CssBaseline />
     </ThemeProvider>
   );
