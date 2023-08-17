@@ -32,7 +32,7 @@ export default function TopSellingProduct() {
         height: "95%",
       }}
     >
-      <Typography variant="h6" sx={{ mx: 3 }}>
+      <Typography variant="h6" fontWeight={"bold"} sx={{ mx: 3 }}>
         Top selling products
       </Typography>
       <TableContainer>

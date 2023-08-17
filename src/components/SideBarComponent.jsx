@@ -31,6 +31,7 @@ export default function SideBarComponent() {
   };
   const location = useLocation();
   const currentPage = location.pathname;
+  console.log(currentPage);
   // const styles = theme => ({
   //     listItemText:{
   //         fontSize:'0.7em',//Insert your required size
@@ -88,7 +89,7 @@ export default function SideBarComponent() {
                 // selected={}
                 selected={
                   index === selected &&
-                  currentPage === "/" + comp.title.toLocaleLowerCase()
+                  currentPage === "/" + comp.title.toLowerCase()
                 }
                 sx={{
                   mb: 3,

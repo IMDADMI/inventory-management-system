@@ -9,8 +9,8 @@ export default class Inventory extends Component {
   }
   render() {
     return (
-      <Box p={3}>
-        <Grid container sx={{ mx: 3 }}>
+      <Box>
+        <Grid container sx={{ mx: 3, p: 3 }}>
           <Grid item md={9}>
             <Box
               sx={{
