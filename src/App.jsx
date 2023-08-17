@@ -19,6 +19,7 @@ import Growth from "./components/bodyComponents/growth/Growth";
 import Report from "./components/bodyComponents/report/Report";
 import Setting from "./components/bodyComponents/Settings/Setting";
 import Order from "./components/bodyComponents/order/Order";
+import OrderModal from "./components/bodyComponents/order/OrderModal";
 
 function App() {
   const theme = createTheme({
@@ -78,10 +79,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <DataTable /> */}
-      {/* <Products /> */}
       <RouterProvider router={router} />
-      {/* bgcolor: "#DEE3E9", height: 899 */}
       <CssBaseline />
     </ThemeProvider>
   );

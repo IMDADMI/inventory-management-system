@@ -1,10 +1,23 @@
-import { Avatar, Box, Button, Typography } from "@mui/material";
+import { Avatar, Box, Button, Modal, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import React, { Component } from "react";
-import productList from "../inventory/productList";
-
+import OrderModal from "./OrderModal";
+import orders from "./listOrders";
 export default class OrderList extends Component {
-  handlOrderDetail = () => {};
+  handlOrderDetail = (order) => {
+    console.log("the order is : ", order);
+    this.setState({ order: order, open: true });
+  };
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      order: {},
+      open: false,
+    };
+  }
   render() {
     const columns = [
       {
@@ -25,8 +38,8 @@ export default class OrderList extends Component {
                 Z
               </Avatar>
               <Typography variant="subtitle2" sx={{ mx: 3 }}>
-                {`${params.row.orders.customer.firstName || ""} ${
-                  params.row.orders.customer.lastName || ""
+                {`${params.row.customer.firstName || ""} ${
+                  params.row.customer.lastName || ""
                 } `}
               </Typography>
             </>
@@ -38,7 +51,7 @@ export default class OrderList extends Component {
         headerName: "Mobile",
         width: 400,
         description: "customer phone number ",
-        valueGetter: (params) => params.row.orders.customer.mobile,
+        valueGetter: (params) => params.row.customer.mobile,
       },
       {
         field: "total",
@@ -57,61 +70,18 @@ export default class OrderList extends Component {
         description: "the details of the order",
 
         renderCell: (params) => {
+          const order = params.row;
           return (
             <Button
               variant="contained"
               sx={{ bgcolor: "#504099" }}
-              onClick={this.handlOrderDetail}
+              onClick={() => this.handlOrderDetail(order)}
             >
               Order Details
             </Button>
           );
         },
       },
-    ];
-    const customer = {
-      firstName: "ADMI",
-      lastName: "ZAKARYAE",
-      position: "Software Engineer",
-      mobile: "0651886151",
-    };
-
-    const product = {
-      name: "",
-      category: "",
-      price: 19,
-      stock: 112,
-    };
-    const orders = {
-      id: 0,
-      quantity: 4,
-      product: product,
-      customer: customer,
-    };
-
-    const rows = [
-      { id: 1, orders },
-      { id: 2, orders },
-      { id: 3, orders },
-      { id: 4, orders },
-      { id: 5, orders },
-      { id: 6, orders },
-      { id: 7, orders },
-      { id: 8, orders },
-      { id: 9, orders },
-      { id: 10, orders },
-      { id: 11, orders },
-      { id: 12, orders },
-      { id: 13, orders },
-      { id: 14, orders },
-      { id: 15, orders },
-      { id: 16, orders },
-      { id: 17, orders },
-      { id: 18, orders },
-      { id: 19, orders },
-      { id: 20, orders },
-      { id: 21, orders },
-      { id: 22, orders },
     ];
 
     return (
@@ -130,7 +100,7 @@ export default class OrderList extends Component {
             borderRight: 0,
             borderRadius: 0,
           }}
-          rows={rows}
+          rows={orders}
           columns={columns}
           initialState={{
             pagination: {
@@ -140,6 +110,12 @@ export default class OrderList extends Component {
           pageSizeOptions={[5, 10, 20]}
           rowSelection={false}
         />
+        <Modal open={this.state.open} onClose={this.handleClose}>
+          {/*  */}
+          <Box>
+            <OrderModal order={this.state.order} />
+          </Box>
+        </Modal>
       </Box>
     );
   }
