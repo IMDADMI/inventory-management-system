@@ -8,8 +8,7 @@ export default function RootComponent() {
   return (
     <>
       <NavBarComponent />
-
-      <Box sx={{ bgcolor: "#DEE3E9" }}>
+      <Box sx={{ bgcolor: "#DEE3E9", height: 899 }}>
         <Grid container spacing={0}>
           <Grid item md={2} sm={0}>
             <SideBarComponent />

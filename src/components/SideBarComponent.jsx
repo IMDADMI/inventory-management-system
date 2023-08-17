@@ -22,13 +22,15 @@ import {
   TrendingUpOutlined,
   PeopleAltOutlined,
 } from "@mui/icons-material";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function SideBarComponent() {
   const navigate = useNavigate();
   const navigateTo = (to) => {
     navigate(to);
   };
+  const location = useLocation();
+  const currentPage = location.pathname;
   // const styles = theme => ({
   //     listItemText:{
   //         fontSize:'0.7em',//Insert your required size
@@ -83,7 +85,11 @@ export default function SideBarComponent() {
                   handlSelectedComponent(event, index);
                   navigateTo(comp.title.toLocaleLowerCase());
                 }}
-                selected={index === selected}
+                // selected={}
+                selected={
+                  index === selected &&
+                  currentPage === "/" + comp.title.toLocaleLowerCase()
+                }
                 sx={{
                   mb: 3,
                   borderLeft: 0,

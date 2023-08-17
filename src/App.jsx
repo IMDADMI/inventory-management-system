@@ -2,13 +2,19 @@ import Inter from "../public/static/fonts/Inter.ttf";
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material";
 import RootComponent from "./components/RootComponent";
 import RootPage from "./components/RootPage";
+import DataTable from "./test/DataTable";
+import Hello from "./test/Hello";
+// import "../app.css";
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./components/bodyComponents/Home/Home";
+import Home from "./components/bodyComponents/home/Home";
+import Products from "./components/bodyComponents/inventory/Products";
+import Inventory from "./components/bodyComponents/inventory/Inventory";
+
 function App() {
   const theme = createTheme({
     spacing: 4,
@@ -51,9 +57,9 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootComponent />}>
-        <Route index element={<RootPage />}></Route>
+        <Route index element={<RootPage />} />
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/inventory"></Route>
+        <Route path="/inventory" element={<Inventory />}></Route>
         <Route path="/orders"></Route>
         <Route path="/customers"></Route>
         <Route path="/revenue"></Route>
@@ -66,7 +72,10 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      {/* <DataTable /> */}
+      {/* <Products /> */}
       <RouterProvider router={router} />
+
       <CssBaseline />
     </ThemeProvider>
   );
