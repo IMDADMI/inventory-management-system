@@ -1,21 +1,30 @@
 import React from "react";
 import NavBarComponent from "./NavBarComponent";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import SideBarComponent from "./SideBarComponent";
-import BodyComponent from "./BodyComponent";
+import { Outlet } from "react-router-dom";
 
 export default function RootComponent() {
   return (
     <>
       <NavBarComponent />
-      <Grid container spacing={0}>
-        <Grid item md={2} sx={{ bgcolor: "error" }}>
-          <SideBarComponent />
+      <Box
+        sx={
+          {
+            // bgcolor: "#DEE3E9",
+            // height: 899,
+          }
+        }
+      >
+        <Grid container spacing={0}>
+          <Grid item md={2} sm={0}>
+            <SideBarComponent />
+          </Grid>
+          <Grid item md={10}>
+            <Outlet />
+          </Grid>
         </Grid>
-        <Grid item md="auto">
-          <BodyComponent />
-        </Grid>
-      </Grid>
+      </Box>
     </>
   );
 }

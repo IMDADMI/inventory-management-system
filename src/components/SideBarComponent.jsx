@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import "../../public/styles/links.css";
 import {
   List,
   ListItem,
@@ -9,6 +10,7 @@ import {
   Box,
   Snackbar,
   Alert,
+  Button,
 } from "@mui/material";
 import {
   HomeOutlined,
@@ -20,8 +22,16 @@ import {
   TrendingUpOutlined,
   PeopleAltOutlined,
 } from "@mui/icons-material";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function SideBarComponent() {
+  const navigate = useNavigate();
+  const navigateTo = (to) => {
+    navigate(to);
+  };
+  const location = useLocation();
+  const currentPage = location.pathname;
+  console.log(currentPage);
   // const styles = theme => ({
   //     listItemText:{
   //         fontSize:'0.7em',//Insert your required size
@@ -41,7 +51,7 @@ export default function SideBarComponent() {
       component: <CardTravelOutlined fontSize="medium" color="primary" />,
     },
     {
-      title: "Customer",
+      title: "Customers",
       component: <PeopleAltOutlined fontSize="medium" color="primary" />,
     },
     {
@@ -53,7 +63,7 @@ export default function SideBarComponent() {
       component: <TrendingUpOutlined fontSize="medium" color="primary" />,
     },
     {
-      title: "Report",
+      title: "Reports",
       component: <DescriptionOutlined fontSize="medium" color="primary" />,
     },
     {
@@ -61,13 +71,26 @@ export default function SideBarComponent() {
       component: <SettingsOutlined fontSize="medium" color="primary" />,
     },
   ];
+  const [selected, setSelected] = useState(0);
+  const handlSelectedComponent = (event, index) => {
+    setSelected(index);
+  };
   return (
     <>
       <List>
-        {sideBarComponent.map((comp) => (
-          <ListItem disablePadding dense={true}>
+        {sideBarComponent.map((comp, index) => (
+          <ListItem disablePadding dense={true} key={index}>
             <Box width="100%">
               <ListItemButton
+                onClick={(event) => {
+                  handlSelectedComponent(event, index);
+                  navigateTo(comp.title.toLocaleLowerCase());
+                }}
+                // selected={}
+                selected={
+                  index === selected &&
+                  currentPage === "/" + comp.title.toLowerCase()
+                }
                 sx={{
                   mb: 3,
                   borderLeft: 0,
@@ -78,20 +101,42 @@ export default function SideBarComponent() {
                 <ListItemIcon>
                   <IconButton>{comp.component}</IconButton>
                 </ListItemIcon>
+                {/* <Link
+                  to={"" + comp.title.toLocaleLowerCase()}
+                  className="router-link"
+                > */}
                 <ListItemText
                   primary={comp.title}
-                  primaryTypographyProps={{ fontSize: "medium" }}
+                  primaryTypographyProps={{
+                    fontSize: "medium",
+                    fontWeight: selected === index ? "bold" : "",
+                    color: selected === index ? "primary.main" : "inherit",
+                  }}
                 />
+                {/* </Link> */}
               </ListItemButton>
             </Box>
           </ListItem>
         ))}
       </List>
-      <Snackbar open={true} autoHideDuration={6000}>
-        <Alert severity="success" sx={{ width: "100%" }}>
+      {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           This is a success message!
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
     </>
   );
+  //   const [open, setOpen] = React.useState(false);
+
+  //   const handleClick = () => {
+  //     setOpen(true);
+  //   };
+
+  //   const handleClose = (event, reason) => {
+  //     if (reason === 'clickaway') {
+  //       return;
+  //     }
+
+  //     setOpen(false);
+  //   };
 }
