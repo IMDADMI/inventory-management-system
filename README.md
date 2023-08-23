@@ -15,7 +15,5 @@ Currently, two official plugins are available:
 - #### react Material Icons
 - ### Screen
 
-- ## Home
-  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/2-home-part/src/assets/Home.PNG?raw=true)
-- ## Inventory
-  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/3-inventory-part/src/assets/Home.PNG?raw=true)
+- ## Customer
+  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/5-customer-part/src/assets/Home.PNG?raw=true)
