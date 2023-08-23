@@ -1,23 +1,8 @@
-import { Avatar, Box, Button, Modal, Typography } from "@mui/material";
+import { Component } from "react";
+import { Avatar, Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import React, { Component } from "react";
-import OrderModal from "./OrderModal";
-import orders from "./listOrders";
-export default class OrderList extends Component {
-  handlOrderDetail = (order) => {
-    console.log("the order is : ", order);
-    this.setState({ order: order, open: true });
-  };
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-  constructor(props) {
-    super(props);
-    this.state = {
-      order: {},
-      open: false,
-    };
-  }
+import customers from "./Customers";
+export default class CustomerList extends Component {
   render() {
     const columns = [
       {
@@ -29,29 +14,31 @@ export default class OrderList extends Component {
       {
         field: "fullname",
         headerName: "Full Name",
-        width: 400,
+        width: 200,
         description: "customer full name",
         renderCell: (params) => {
           return (
             <>
-              <Avatar alt="name" sx={{ width: 30, height: 30 }}>
+              <Avatar
+                alt="name"
+                variant="square"
+                sx={{ borderRadius: 1, width: 30, height: 30 }}
+              >
                 Z
               </Avatar>
               <Typography variant="subtitle2" sx={{ mx: 3 }}>
-                {`${params.row.customer.firstName || ""} ${
-                  params.row.customer.lastName || ""
-                } `}
+                {`${params.row.firstName || ""} ${params.row.lastName || ""} `}
               </Typography>
             </>
           );
         },
       },
       {
-        field: "mobile",
-        headerName: "Mobile",
-        width: 400,
-        description: "customer phone number ",
-        valueGetter: (params) => params.row.customer.mobile,
+        field: "orderNumber",
+        headerName: "Number Of Order",
+        width: 200,
+        description: "number of order that the customer made",
+        valueGetter: (params) => params.row.orders.length,
       },
       {
         field: "total",
@@ -64,26 +51,23 @@ export default class OrderList extends Component {
         },
       },
       {
-        field: "details",
+        field: "orderHistory",
         headerName: "Order Details",
         width: 300,
         description: "the details of the order",
-
-        renderCell: (params) => {
-          const order = params.row;
-          return (
-            <Button
-              variant="contained"
-              sx={{ bgcolor: "#504099" }}
-              onClick={() => this.handlOrderDetail(order)}
-            >
-              Order Details
-            </Button>
-          );
+        valueGetter: (params) => {
+          const history = "03/01/2027";
+          return history;
         },
       },
+      {
+        field: "mobile",
+        headerName: "Mobile",
+        width: 300,
+        description: "total amount of the order",
+      },
     ];
-
+    const rows = customers;
     return (
       <Box
         sx={{
@@ -100,7 +84,7 @@ export default class OrderList extends Component {
             borderRight: 0,
             borderRadius: 0,
           }}
-          rows={orders}
+          rows={rows}
           columns={columns}
           initialState={{
             pagination: {
@@ -110,12 +94,7 @@ export default class OrderList extends Component {
           pageSizeOptions={[15, 20, 30]}
           rowSelection={false}
         />
-        <Modal open={this.state.open} onClose={this.handleClose}>
-          {/*  */}
-          <Box>
-            <OrderModal order={this.state.order} />
-          </Box>
-        </Modal>
+        <Box></Box>
       </Box>
     );
   }
