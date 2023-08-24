@@ -74,6 +74,7 @@ export default class Home extends Component {
             </Grid>
           ))}
         </Grid>
+
         <Grid container sx={{ marginX: 3 }}>
           <Grid item md={8}>
             <TotalSales data={data} />
