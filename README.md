@@ -15,5 +15,5 @@ Currently, two official plugins are available:
 - #### react Material Icons
 - ### Screen
 
-- ## Customer
+- ## Revenue
   ![click me](https://github.com/IMDADMI/inventory-management-system/blob/6-revenue-part/src/assets/Home.PNG?raw=true)
