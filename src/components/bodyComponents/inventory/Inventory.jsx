@@ -16,7 +16,7 @@ export default class Inventory extends Component {
               sx={{
                 margin: 3,
                 bgcolor: "white",
-                borderRadius: 5,
+                borderRadius: 2,
                 padding: 3,
                 height: "100%",
               }}
@@ -32,7 +32,7 @@ export default class Inventory extends Component {
               sx={{
                 margin: 3,
                 bgcolor: "white",
-                borderRadius: 5,
+                borderRadius: 2,
                 padding: 3,
                 height: "100%",
               }}

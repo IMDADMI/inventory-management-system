@@ -53,7 +53,7 @@ export default function OrderModal({ order }) {
         width: "50%",
         bgcolor: "white",
 
-        borderRadius: 3,
+        borderRadius: 2,
         boxShadow: 24,
         p: 4,
       }}

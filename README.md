@@ -16,4 +16,4 @@ Currently, two official plugins are available:
 - ### Screen
 
 - ## Customer
-  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/5-customer-part/src/assets/Home.PNG?raw=true)
+  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/7-growth-part/src/assets/Home.PNG?raw=true)
