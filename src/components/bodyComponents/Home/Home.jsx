@@ -64,7 +64,7 @@ export default class Home extends Component {
             display: "flex",
             justifyContent: "space-between",
             marginX: 3,
-            borderRadius: 5,
+            borderRadius: 2,
             padding: 0,
           }}
         >

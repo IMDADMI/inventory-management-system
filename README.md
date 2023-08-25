@@ -14,6 +14,7 @@ Currently, two official plugins are available:
 - #### react Apex Charts
 - #### react Material Icons
 - ### Screen
+  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/7-growth-part/src/assets/Home.PNG?raw=true)
   - ## Home
   ![click me](https://github.com/IMDADMI/inventory-management-system/blob/2-home-part/src/assets/Home.PNG?raw=true)
   - ## Inventory
@@ -26,4 +27,5 @@ Currently, two official plugins are available:
   ![click me](https://github.com/IMDADMI/inventory-management-system/blob/5-customer-part/src/assets/Home.PNG?raw=true)
  - ## Revenue
   ![click me](https://github.com/IMDADMI/inventory-management-system/blob/6-revenue-part/src/assets/Home.PNG?raw=true)
-
+  - ## Growth
+  ![click me](https://github.com/IMDADMI/inventory-management-system/blob/7-growth-part/src/assets/Home.PNG?raw=true)

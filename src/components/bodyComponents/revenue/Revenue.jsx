@@ -9,30 +9,38 @@ export default class Revenue extends Component {
   render() {
     const revenuCards = [
       {
-        money: "23 000",
+        isMoney: true,
+        number: "23 000",
         percentage: 55,
         upOrDown: "up",
         color: "green",
-        titre: "Total Sales This Year",
+        title: "Total Sales This Year",
+        subTitle: "vs prev year",
       },
       {
-        money: "3500",
+        isMoney: true,
+        number: "3500",
         percentage: 70,
         upOrDown: "up",
         color: "green",
-        titre: "Revenue This Year",
+        title: "Revenue This Year",
+        subTitle: "vs prev year",
       },
       {
-        money: "2000",
+        isMoney: true,
+        number: "2000",
         percentage: 12,
         upOrDown: "down",
         color: "red",
-        titre: "Cost This Year",
+        title: "Cost This Year",
+        subTitle: "vs prev year",
       },
       {
-        money: "98 000",
+        isMoney: true,
+        number: "98 000",
         percentage: undefined,
-        titre: "Revenue Total",
+        title: "Revenue Total",
+        subTitle: "vs prev year",
       },
     ];
     return (

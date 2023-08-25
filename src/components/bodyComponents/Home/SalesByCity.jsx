@@ -29,7 +29,7 @@ export default function SalesByCity() {
       sx={{
         margin: 3,
         bgcolor: "white",
-        borderRadius: 5,
+        borderRadius: 2,
         padding: 3,
         height: "100%",
       }}

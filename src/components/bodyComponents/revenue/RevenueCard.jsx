@@ -3,21 +3,16 @@ import React from "react";
 import Percentage from "./Percentage";
 
 export default function RevenueCard(props) {
-  const { money, percentage, upOrDown, color, titre } = props.card;
-  //   const { money, percentage, upOrDown, color, titre } = {
-  //     money: 230,
-  //     percentage: 55,
-  //     upOrDown: "up",
-  //     color: "green",
-  //     titre: "Total Sales This Year",
-  //   };
+  const { number, percentage, upOrDown, color, title, subTitle, isMoney } =
+    props.card;
+
   return (
     <Paper elevation={3} sx={{ py: 5, px: 4, borderRadius: 2 }}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box>
             <Typography fontWeight={"bold"} variant="h6">
-              $ {money}
+              {isMoney ? "$" : ""} {number}
             </Typography>
           </Box>
           <Box>
@@ -30,10 +25,19 @@ export default function RevenueCard(props) {
             )}
           </Box>
         </Box>
-        <Box>
-          <Typography fontWeight={"light"} variant="h6">
-            {titre}
-          </Typography>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box>
+            <Typography fontWeight={"light"} variant="h6">
+              {title}
+            </Typography>
+          </Box>
+          <Box>
+            {percentage && (
+              <Typography fontWeight={"light"} variant="caption" color={color}>
+                {subTitle}
+              </Typography>
+            )}
+          </Box>
         </Box>
       </Box>
     </Paper>
